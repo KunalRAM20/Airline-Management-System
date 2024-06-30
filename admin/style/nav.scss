@@ -1,0 +1,65 @@
+@import "./root";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include themed-bg-side;
+  padding: 0.5em 1em;
+
+  .icon {
+    cursor: pointer;
+    padding-right: 1em;
+    display: flex;
+    gap: 1em;
+    white-space: nowrap;
+    font-size: 20px;
+    color: $blue_white;
+
+    .logo {
+      @include logo-color;
+    }
+
+    .burger {
+      padding: 0 0.5em;
+
+      &:hover {
+        // font-size: 24px;
+        scale: 1.2;
+      }
+    }
+
+    a {
+      color: $blue_white;
+    }
+  }
+
+  // nav_marquee.php
+  .scroll {
+    margin-right: 2em;
+    color: $blue_white;
+  }
+
+  .logout {
+    font-weight: 600;
+    border: 1px solid $blue_white;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: $blue_white;
+    transition: background-color 0.3s;
+
+    &:hover {
+      color: $blue;
+      @media (prefers-color-scheme: dark) {
+        color: $d_bg_dark; // Change the color for dark mode
+      }
+      background-color: $blue_white;
+
+      a {
+        text-decoration: none;
+        color: $blue;
+      }
+    }
+  }
+}

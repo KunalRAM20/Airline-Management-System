@@ -1,0 +1,132 @@
+@import "./root";
+
+//
+///*/
+// for locations and drivers //
+///*/
+//
+
+h1 {
+  text-align: center;
+  text-decoration: underline 2px $blue dashed;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0.5em 0 1em 0;
+}
+
+.table {
+  margin: 0 3em 5em 3em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    background-color: $blue_dark;
+    color: $blue_white;
+    text-align: center;
+  }
+
+  &:has(.driver_link) td {
+    // color: black;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      color: adjust-hue($blue, 30deg);
+    }
+  }
+
+  tr {
+    font-size: 14px;
+    padding: 0.5em 1em;
+
+    &:nth-child(odd) {
+      @include themed-bg;
+    }
+  }
+
+  .delete {
+    background-color: rgba(253, 212, 212, 0.8);
+    border: none;
+    outline: none;
+  }
+
+  .fa-trash {
+    color: red !important;
+  }
+
+  th {
+    &:last-child {
+      background-color: transparent;
+    }
+  }
+
+  th,
+  td {
+    padding: 0.5em 0.5em;
+    border: 1px solid $blue_light;
+
+    &:last-child {
+      @extend .delete;
+      padding: 0em 0em;
+      text-align: center;
+    }
+  }
+}
+
+.insert_driver {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  text-align: center;
+  // align-items: center;
+  justify-content: center;
+  // gap: 0.5em;
+  margin: 1em;
+
+  .airport {
+    margin-right: 1em;
+  }
+
+  .extra_info {
+    margin-left: 1em;
+  }
+
+  .airport,
+  .extra_info {
+    display: flex;
+    flex-direction: column;
+    // align-items: baseline;
+    justify-content: space-between;
+    gap: 1em;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: space-between;
+
+      label {
+        font-weight: 500;
+      }
+    }
+  }
+
+  input {
+    @include themed-bg(0.6);
+    min-width: 200px;
+    border-radius: 10px;
+  }
+
+  .submit {
+    // width: 150px;
+    border-radius: 20px;
+  }
+}

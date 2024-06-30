@@ -1,0 +1,93 @@
+@import "./root";
+
+h2 {
+  margin-left: 0.7em;
+}
+hr {
+  margin: 3em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.5em;
+  // min-width: calc(100vw - 2em);
+
+  th {
+    background-color: $blue_dark;
+    color: $blue_white;
+    text-align: center;
+  }
+  .cancel_th,
+  .verify_th {
+    background-color: rgb(228, 246, 228);
+    color: $blue_dark;
+  }
+
+  tr {
+    font-size: 14px;
+    padding: 0.5em 0.5em;
+  }
+
+  td {
+    &:nth-child(1),
+    &:nth-child(4) {
+      @include themed-bg(1);
+    }
+  }
+  .driver_row {
+    @include themed-bg(0.6);
+  }
+  .not-assigned {
+    color: gray;
+    font-weight: 400;
+    font-size: 80%;
+    font-style: italic;
+  }
+
+  .cancel {
+    color: red;
+    border: none;
+    outline: none;
+  }
+  .verify {
+    color: green;
+  }
+
+  .empty {
+    display: none;
+  }
+
+  th,
+  td {
+    padding: 0.5em 0.5em;
+    border: 1px solid $blue_light;
+    text-align: center;
+  }
+  .button {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid $blue;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+}
+
+.search {
+  margin: 3em 2em;
+  @include themed-bg(1);
+  padding: 1em;
+  border-radius: 10px;
+
+  label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 0.5em;
+  }
+
+  input:not(.submit) {
+    @include themed-bg-side(0.3);
+  }
+}

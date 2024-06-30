@@ -1,0 +1,154 @@
+@import "./root";
+
+// body {
+//   background-color: rgba($blue_white, 0.4);
+// }
+
+@mixin newMorph($radius: 10px, $border_size: 1px) {
+  border-radius: $radius;
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4) inset, -5px 5px 10px rgba(104, 104, 104, 0.1) inset; // Dark mode shadow color
+  }
+
+  @media (prefers-color-scheme: light) {
+    border: $border_size solid rgba($blue_white, 1);
+    box-shadow: 2px -2px 10px rgba(0, 0, 0, 0.1) inset, -5px 5px 10px rgb(255, 255, 255) inset; // Light mode shadow color
+  }
+}
+
+.blocks_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  margin: 2em 0.5em;
+  max-width: calc(100vw - 20vw);
+
+  .blocks {
+    @include newMorph;
+    text-align: center;
+    max-width: 200px;
+    flex: 1 0 calc(100% / 3);
+    position: relative;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    i {
+      @include newMorph($radius: 50%);
+      // box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1), inset 5px -5px 10px rgb(255, 255, 255), inset 2px -2px 10px rgba(0, 0, 0, 0.15);
+      height: 40px;
+      aspect-ratio: 1;
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      font-size: 30px;
+      color: $blue;
+      padding: 0.4em;
+    }
+
+    h2 {
+      font-weight: 700;
+      margin-top: -10px;
+      font-size: 16px;
+      text-decoration: underline;
+    }
+
+    p {
+      margin-top: auto;
+      font-weight: 600;
+      font-style: oblique;
+    }
+  }
+}
+
+.chart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .graph {
+    width: calc((100% - 8vw) / 2);
+    max-width: calc(50vw - 1em);
+    max-height: 50vh;
+    margin: 1em 0;
+    padding: 0.5em;
+    // background-color: $blue_white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 0px 100px rgba($blue_light, 0.2) inset, -2px 2px 10px rgba(0, 0, 0, 0.1), inset 5px -5px 10px rgb(255, 255, 255), inset 2px -2px 10px rgba(0, 0, 0, 0.15);
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 0px 100px rgba($blue_light, 0.05) inset, -2px 2px 10px rgba(0, 0, 0, 0.1), inset 5px -5px 10px rgba(0, 0, 0, 0.3), inset 2px -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    // display: flex;
+
+    .pi {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .multi_graph {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+
+      .mini_graph {
+        width: 45%;
+        height: 100%;
+      }
+
+      .mini_graph_block {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0.5em;
+        flex-wrap: wrap;
+
+        .block {
+          @include newMorph($radius: 5px);
+          font-size: 12px;
+          text-align: center;
+          padding: 0.5em;
+          margin-right: 2em;
+          min-width: 100%;
+
+          &:first-child {
+            font-size: 14px;
+            @include newMorph($radius: 5px);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), inset 2px -2px 10px rgb(255, 255, 255), inset 2px -2px 5px rgba(0, 0, 0, 0.15);
+          }
+
+          span {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .fba,
+  .driver {
+    display: flex;
+    justify-content: center;
+    @include newMorph;
+    min-width: calc(100vw - 18vw) !important;
+    min-height: 60vh !important;
+
+    .can {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      justify-content: center;
+      .block {
+        min-width: calc((100vw - 18vw - 3em) / 2);
+      }
+    }
+  }
+}
