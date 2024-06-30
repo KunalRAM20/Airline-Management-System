@@ -1,0 +1,84 @@
+@import "./root";
+
+// watch mpf line 60
+// from home.scss
+
+form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1em 0;
+
+  label {
+    font-size: 24px;
+    font-weight: 600;
+    color: $blue;
+  }
+
+  #class_select {
+    border-radius: 20px;
+    min-width: max-content;
+    padding: 0.3em 0.5em;
+    border: none;
+  }
+
+  @include max-width(768px) {
+    & {
+      label {
+        font-size: 18px;
+      }
+
+      #class_select {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 70vw;
+
+  tr {
+    &:has(th) {
+      text-align: center;
+      background-color: $blue;
+      color: $blue_white;
+
+      th {
+        padding: 0.2em 1em;
+      }
+    }
+
+    &:has(td) {
+      border-bottom: 1px solid rgba($blue, 0.2);
+    }
+  }
+
+  td:not(th) {
+    text-align: left;
+    padding: 0.3em 0em;
+    color: $blue_dark;
+
+    &:not(:first-child) {
+      padding-left: 2em;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  @include max-width(768px) {
+    & {
+      th {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      tr:has(:not(th)) {
+        font-size: 12px;
+      }
+    }
+  }
+}
